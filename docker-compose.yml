@@ -5,11 +5,20 @@ services:
   nginx:
     image: nginx:1.17.4-alpine
     ports:
-      - 8199:80
+      - 80:80
+      - 443:443  
     volumes:
-      - ./nginx/static-html:/usr/share/nginx/html:ro
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/static-html:/usr/share/nginx/html:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+
+  certbot:
+    image: certbot/certbot:v0.39.0
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
