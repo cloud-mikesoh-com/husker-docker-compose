@@ -1,8 +1,9 @@
 # Use root/example as user/password credentials
-version: '3.1'
+version: '3.7'
 
 services:
   nginx:
+    container_name: 'nginx'
     image: nginx:1.17.4-alpine
     ports:
       - 80:80
@@ -15,19 +16,20 @@ services:
       - ./certbot/www:/var/www/certbot
 
   certbot:
+    container_name: 'certbot'
     image: certbot/certbot:v0.39.0
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
 
   phpmyadmin:
+    container_name: 'phpmyadmin'
     image: phpmyadmin/phpmyadmin:latest
     ports:
       - 8080:80
     environment:
       TZ: America/New_York
-      PMA_HOST: host.docker.internal
-      PMA_ABSOLUTE_URI: http://husker.mikesoh.com:8199/phpmyadmin/
+      PMA_HOST: 172.17.0.1
+      PMA_ABSOLUTE_URI: https://husker.mikesoh.com/phpmyadmin/
     volumes:
       - ./phpmyadmin/sessions:/sessions
-        # - ./config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
