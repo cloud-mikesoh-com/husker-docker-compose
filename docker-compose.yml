@@ -50,5 +50,3 @@ services:
       ROUNDCUBEMAIL_DB_USER: roundcube_user
       ROUNDCUBEMAIL_DB_PASSWORD: BjVBv3vhCvvcEYsx
       ROUNDCUBEMAIL_DB_NAME: roundcubemail
-    volumes:
-      - ./roundcube/config:/var/roundcube/config
