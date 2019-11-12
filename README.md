@@ -7,6 +7,7 @@ containers.  This docker file deploys the following:
 * [`nginx` v1.17.4-alpine](https://hub.docker.com/_/nginx)
 * [`phpmyadmin` latest](https://hub.docker.com/r/phpmyadmin/phpmyadmin)
 * [`certbot` 0.39.0](https://hub.docker.com/r/certbot/certbot)
+* [`roundcube` latest](https://hub.docker.com/r/roundcube/roundcubemail)
 
 # Why Tagged Versions
 
