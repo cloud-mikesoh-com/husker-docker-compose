@@ -52,3 +52,12 @@ services:
       ROUNDCUBEMAIL_DB_USER: roundcube_user
       ROUNDCUBEMAIL_DB_PASSWORD: BjVBv3vhCvvcEYsx
       ROUNDCUBEMAIL_DB_NAME: roundcubemail
+
+  mail_aliases:
+    container_name: 'mail_aliases'
+    image: php:7-apache
+    ports:
+      - 9000:9000
+    volumes:
+      - ./php/mail_aliases:/var/www/html
+
