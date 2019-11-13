@@ -27,8 +27,6 @@ services:
   phpmyadmin:
     container_name: 'phpmyadmin'
     image: phpmyadmin/phpmyadmin:latest
-    ports:
-      - 8080:80
     environment:
       TZ: America/New_York
       PMA_HOST: 172.17.0.1
@@ -39,8 +37,6 @@ services:
   roundcube:
     container_name: 'roundcube'
     image: roundcube/roundcubemail:latest
-    ports:
-      - 8081:80
     environment:
       ROUNDCUBEMAIL_DEFAULT_HOST: 172.17.0.1
       ROUNDCUBEMAIL_DEFAULT_PORT: 993
@@ -56,8 +52,6 @@ services:
   mail_aliases:
     container_name: 'mail_aliases'
     image: php:7-apache
-    ports:
-      - 9000:9000
     volumes:
-      - ./php/mail_aliases:/var/www/html
+    - ./php/mail_aliases:/var/www/html:ro
 
