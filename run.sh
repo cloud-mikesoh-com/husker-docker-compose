@@ -2,7 +2,7 @@
 
 echo Bringing up docker containers using docker-compose
 
-docker-compose up -d
+/usr/local/bin/docker-compose -f ~/docker/docker-compose.yml up -d
 
 echo Done.  To update:
 echo "    docker-compose up"
