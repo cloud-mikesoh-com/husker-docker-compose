@@ -40,10 +40,10 @@ services:
   roundcube:
     container_name: 'roundcube'
     image: roundcube/roundcubemail:latest
-    mem_limit: 32m
+    mem_limit: 64m
     environment:
       ROUNDCUBEMAIL_DEFAULT_HOST: 172.17.0.1
-      ROUNDCUBEMAIL_DEFAULT_PORT: 993
+      ROUNDCUBEMAIL_DEFAULT_PORT: 143
       ROUNDCUBEMAIL_SMTP_SERVER: 172.17.0.1
       ROUNDCUBEMAIL_SMTP_PORT: 25
       ROUNDCUBEMAIL_UPLOAD_MAX_FILESIZE: 100M
