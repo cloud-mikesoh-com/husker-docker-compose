@@ -33,7 +33,7 @@ services:
     environment:
       TZ: America/New_York
       PMA_HOST: 172.17.0.1
-      PMA_ABSOLUTE_URI: https://husker.mikesoh.com/phpmyadmin/
+      PMA_ABSOLUTE_URI: https://secure.mikesoh.com/phpmyadmin/
     volumes:
       - ./phpmyadmin/sessions:/sessions
 
