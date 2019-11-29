@@ -5,6 +5,7 @@ services:
   nginx:
     container_name: 'nginx'
     image: nginx:1.17.4-alpine
+    mem_limit: 16m
     ports:
       - 80:80
       - 443:443  
@@ -19,7 +20,7 @@ services:
   certbot:
     container_name: 'certbot'
     image: certbot/certbot:v0.39.0
-    mem_limit: 8m
+    mem_limit: 64m
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
@@ -39,7 +40,7 @@ services:
   roundcube:
     container_name: 'roundcube'
     image: roundcube/roundcubemail:latest
-    mem_limit: 16m
+    mem_limit: 32m
     environment:
       ROUNDCUBEMAIL_DEFAULT_HOST: 172.17.0.1
       ROUNDCUBEMAIL_DEFAULT_PORT: 993
