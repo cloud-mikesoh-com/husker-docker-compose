@@ -1,5 +1,5 @@
 # Use root/example as user/password credentials
-version: '3.7'
+version: '2.4'
 
 services:
   nginx:
@@ -19,6 +19,7 @@ services:
   certbot:
     container_name: 'certbot'
     image: certbot/certbot:v0.39.0
+    mem_limit: 8m
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
@@ -27,6 +28,7 @@ services:
   phpmyadmin:
     container_name: 'phpmyadmin'
     image: phpmyadmin/phpmyadmin:latest
+    mem_limit: 16m
     environment:
       TZ: America/New_York
       PMA_HOST: 172.17.0.1
@@ -37,6 +39,7 @@ services:
   roundcube:
     container_name: 'roundcube'
     image: roundcube/roundcubemail:latest
+    mem_limit: 16m
     environment:
       ROUNDCUBEMAIL_DEFAULT_HOST: 172.17.0.1
       ROUNDCUBEMAIL_DEFAULT_PORT: 993
@@ -52,6 +55,7 @@ services:
   mail_aliases:
     container_name: 'mail_aliases'
     image: php:7-apache
+    mem_limit: 16m
     volumes:
     - ./php/mail_aliases:/var/www/html:ro
 
