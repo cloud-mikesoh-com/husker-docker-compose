@@ -13,15 +13,17 @@ staging=0 # Set to 1 if you're testing your setup to avoid hitting request limit
 
 # Check to see if there is a file to pull domains from
 if [[ -e ./domains ]]; then
+    IFS=$'\n'
     echo "Reading ./domains ..."
     domains=( $(sed ':a;N;$!ba;s/\n/ /g' domains) )
+    unset IFS
 fi
 
 echo "Obtaining certificates for the following domains:"
-echo "${domains}"
+echo "$domains"
 
 if [ -d "$data_path" ]; then
-  read -p "Existing data found for $domains. Continue and replace existing certificate? (y/N) " decision
+  read -p "Existing data found. Continue and replace existing certificate? (y/N) " decision
   if [ "$decision" != "Y" ] && [ "$decision" != "y" ]; then
     exit
   fi
