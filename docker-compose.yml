@@ -30,7 +30,7 @@ services:
   phpmyadmin:
     container_name: 'phpmyadmin'
     image: phpmyadmin/phpmyadmin:latest
-    mem_limit: 16m
+    mem_limit: 64m
     environment:
       TZ: America/New_York
       PMA_HOST: 172.17.0.1
