@@ -14,7 +14,7 @@ staging=0 # Set to 1 if you're testing your setup to avoid hitting request limit
 # Check to see if there is a file to pull domains from
 if [[ -e ./domains ]]; then
     echo "Reading ./domains ..."
-    domains="$(sed ':a;N;$!ba;s/\n/ /g' domains)"
+    domains=( $(sed ':a;N;$!ba;s/\n/ /g' domains) )
 fi
 
 echo "Obtaining certificates for the following domains:"
