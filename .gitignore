@@ -1,3 +1,4 @@
 certbot/conf/
 phpmyadmin/sessions/
-
+php/
+nginx/logs/
