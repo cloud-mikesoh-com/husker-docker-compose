@@ -13,9 +13,9 @@ staging=0 # Set to 1 if you're testing your setup to avoid hitting request limit
 
 # Check to see if there is a file to pull domains from
 if [[ -e ./domains ]]; then
-    IFS=$'\n'
+    IFS=$'\t'
     echo "Reading ./domains ..."
-    domains=( $(cat domains) )
+    domains=( $(cat ./domains) )
     unset IFS
 fi
 
