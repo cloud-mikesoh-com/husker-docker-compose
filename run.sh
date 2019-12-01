@@ -1,11 +1,13 @@
 #!/bin/sh
 
-echo Bringing up docker containers using docker-compose
+echo Making sure you have the latest images:
+/usr/local/bin/docker-compose pull
 
-/usr/local/bin/docker-compose -f ~/docker/docker-compose.yml up -d
+echo Bringing up docker containers using docker-compose
+/usr/local/bin/docker-compose -f ~docker/docker/docker-compose.yml up -d
 
 echo Done.  To update:
-echo "    docker-compose up"
+echo "    docker-compose pull && docker-compose up"
 
 echo
 echo To bring down:
