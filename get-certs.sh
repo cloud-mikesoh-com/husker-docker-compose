@@ -10,17 +10,16 @@ data_path="./certbot"
 email="" # Adding a valid address is strongly recommended
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
 
-
 # Check to see if there is a file to pull domains from
 if [[ -e ./domains ]]; then
-    IFS=$'\t'
+    IFS=$'\n'
     echo "Reading ./domains ..."
     domains=( $(cat ./domains) )
     unset IFS
 fi
 
 echo "Obtaining certificates for the following domains:"
-echo "$domains"
+echo "  > ${domains[*]}"
 
 if [ -d "$data_path" ]; then
   read -p "Existing data found. Continue and replace existing certificate? (y/N) " decision
