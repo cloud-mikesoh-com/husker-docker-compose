@@ -1,14 +1,24 @@
 #!/bin/bash
 
-# Repo:
+# Based on:
 # https://github.com/wmnnd/nginx-certbot/blob/master/init-letsencrypt.sh
 # MIT License
 
-domains=(husker.mikesoh.com private.mikesoh.com secure.mikesoh.com)
+domains=(www.example.com example.com subdomain.example.com)
 rsa_key_size=2048
 data_path="./certbot"
 email="" # Adding a valid address is strongly recommended
 staging=0 # Set to 1 if you're testing your setup to avoid hitting request limits
+
+
+# Check to see if there is a file to pull domains from
+if [[ -e ./domains ]]; then
+    echo "Reading ./domains ..."
+    domains="$(sed ':a;N;$!ba;s/\n/ /g' domains)"
+fi
+
+echo "Obtaining certificates for the following domains:"
+echo "${domains}"
 
 if [ -d "$data_path" ]; then
   read -p "Existing data found for $domains. Continue and replace existing certificate? (y/N) " decision
