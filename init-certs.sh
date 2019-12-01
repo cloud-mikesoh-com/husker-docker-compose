@@ -15,7 +15,7 @@ staging=0 # Set to 1 if you're testing your setup to avoid hitting request limit
 if [[ -e ./domains ]]; then
     IFS=$'\n'
     echo "Reading ./domains ..."
-    domains=( $(sed ':a;N;$!ba;s/\n/ /g' domains) )
+    domains=( $(cat domains) )
     unset IFS
 fi
 
