@@ -36,6 +36,7 @@ services:
       PMA_ABSOLUTE_URI: https://secure.mikesoh.com/phpmyadmin/
     volumes:
       - ./phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php:ro
+      - ./phpmyadmin/ca-certs:/etc/phpmyadmin/ca-certs:ro
       - ./phpmyadmin/sessions:/sessions
 
   roundcube:
