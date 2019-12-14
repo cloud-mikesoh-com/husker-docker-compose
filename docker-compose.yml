@@ -1,11 +1,10 @@
 # Use root/example as user/password credentials
-version: '2.4'
+version: '3.7'
 
 services:
   nginx:
     container_name: 'nginx'
     image: nginx:1.17.4-alpine
-    mem_limit: 16m
     ports:
       - 80:80
       - 443:443  
@@ -17,20 +16,26 @@ services:
       - ./certbot/conf:/etc/letsencrypt:ro
       - ./certbot/www:/var/www/certbot:ro
     command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+    deploy:
+      resources:
+        limits:
+          memory: 16m
 
   certbot:
     container_name: 'certbot'
     image: certbot/certbot:v0.39.0
-    mem_limit: 64m
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
     entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+    deploy:
+      resources:
+        limits:
+          memory: 64m
 
   phpmyadmin:
     container_name: 'phpmyadmin'
     image: phpmyadmin/phpmyadmin:latest
-    mem_limit: 64m
     environment:
       TZ: 'America/New_York'
       PMA_ABSOLUTE_URI: 'https://secure.mikesoh.com/phpmyadmin/'
@@ -38,11 +43,14 @@ services:
       - ./phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php:ro
       - ./phpmyadmin/ca-certs:/etc/phpmyadmin/ca-certs:ro
       - ./phpmyadmin/sessions:/sessions
+    deploy:
+      resources:
+        limits:
+          memory: 64m
 
   roundcube:
     container_name: 'roundcube'
     image: roundcube/roundcubemail:latest
-    mem_limit: 64m
     environment:
       ROUNDCUBEMAIL_DEFAULT_HOST: 172.16.1.1
       ROUNDCUBEMAIL_DEFAULT_PORT: 143
@@ -54,12 +62,20 @@ services:
       ROUNDCUBEMAIL_DB_USER: roundcube_user
       ROUNDCUBEMAIL_DB_PASSWORD: SOMEPASSWORD
       ROUNDCUBEMAIL_DB_NAME: roundcubemail
+    deploy:
+      resources:
+        limits:
+          memory: 64m
 
   mail_aliases:
     container_name: 'mail_aliases'
     image: php:7-apache
     volumes:
-    - ./php/mail_aliases:/var/www/html:ro
+      - ./php/mail_aliases:/var/www/html:ro
+    deploy:
+      resources:
+        limits:
+          memory: 64m
 
 networks:
   default:
