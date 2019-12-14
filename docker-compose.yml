@@ -32,8 +32,8 @@ services:
     image: phpmyadmin/phpmyadmin:latest
     mem_limit: 64m
     environment:
-      TZ: America/New_York
-      PMA_ABSOLUTE_URI: https://secure.mikesoh.com/phpmyadmin/
+      TZ: 'America/New_York'
+      PMA_ABSOLUTE_URI: 'https://secure.mikesoh.com/phpmyadmin/'
     volumes:
       - ./phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php:ro
       - ./phpmyadmin/ca-certs:/etc/phpmyadmin/ca-certs:ro
