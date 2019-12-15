@@ -57,7 +57,8 @@ services:
 
   mail_aliases:
     container_name: 'mail_aliases'
-    image: php:7-apache
+    image: sohmc/php-mysqli:7-apache
+    mem_limit: 32m
     volumes:
     - ./php/mail_aliases:/var/www/html:ro
 
