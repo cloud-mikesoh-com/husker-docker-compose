@@ -42,7 +42,7 @@ services:
   roundcube:
     container_name: 'roundcube'
     image: roundcube/roundcubemail:latest
-    mem_limit: 64m
+    mem_limit: 128m
     volumes:
       - ./roundcube/config:/var/roundcube/config:ro
 
