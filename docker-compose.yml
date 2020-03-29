@@ -20,7 +20,7 @@ services:
 
   certbot:
     container_name: 'certbot'
-    image: certbot/certbot:v0.39.0
+    image: certbot/certbot:v1.3.0
     mem_limit: 64m
     volumes:
       - ./certbot/conf:/etc/letsencrypt
