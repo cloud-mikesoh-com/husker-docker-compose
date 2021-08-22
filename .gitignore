@@ -1,4 +1,6 @@
-certbot/conf/
+phpmyadmin/config.user.inc.php
 phpmyadmin/sessions/
+roundcube/db/
+certbot/conf/
 php/
 nginx/logs/
