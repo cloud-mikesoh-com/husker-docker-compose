@@ -1,5 +1,5 @@
 <?php
-    $config['db_dsnw'] = 'mysql://someuser:somepassword@172.17.0.1:3306/roundcubemail';
+    $config['db_dsnw'] = 'sqlite:////var/roundcube/db/roundcube.db?mode=0646';
     $config['db_dsnr'] = '';
     $config['default_host'] = 'ssl://172.17.0.1:993';
     $config['smtp_server'] = 'tls://172.17.0.1:587';
