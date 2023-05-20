@@ -4,15 +4,14 @@ This repository holds the `docker-compose.yml` file along with other
 configuration files that will allow me to deploy my site's various
 containers.  This docker file deploys the following:
 
-* [`nginx` v1.17.4-alpine](https://hub.docker.com/_/nginx)
+* [`nginx` v1.24-alpine](https://hub.docker.com/_/nginx)
 * [`phpmyadmin` latest](https://hub.docker.com/r/phpmyadmin/phpmyadmin)
-* [`certbot` 1.3.0](https://hub.docker.com/r/certbot/certbot)
+* [`certbot` latest](https://hub.docker.com/r/certbot/certbot)
 * [`roundcube` latest](https://hub.docker.com/r/roundcube/roundcubemail)
 
 # Why Tagged Versions
 
-`nginx` and `certbot` are pinned to specific versions since they are
-most likely to fail without properly testing.
+`nginx` is pinned to a specific version since it is most likely to fail without properly testing.
 
 # Attributions
 
