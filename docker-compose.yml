@@ -29,7 +29,7 @@ services:
 
   phpmyadmin:
     container_name: 'phpmyadmin'
-    image: phpmyadmin/phpmyadmin:latest
+    image: phpmyadmin:latest
     mem_limit: 64m
     environment:
       TZ: 'America/New_York'
