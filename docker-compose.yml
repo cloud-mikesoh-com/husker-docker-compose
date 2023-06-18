@@ -46,7 +46,7 @@ services:
       ROUNDCUBE_DEFAULT_HOST: 'ssl://172.17.0.1:993'
       ROUNDCUBE_SMTP_SERVER: 'tls://172.17.0.1:587'
       ROUNDCUBE_REQUEST_PATH: ''
-      ROUNDCUBE_SKIN: 'larry'
+      ROUNDCUBE_SKIN: 'elastic'
       ROUNDCUBE_PLUGINS: 'archive,zipdownload'
       ROUNDCUBEMAIL_UPLOAD_MAX_FILESIZE: '25M'
     volumes:
