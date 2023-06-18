@@ -48,7 +48,7 @@ services:
 
   mail_aliases:
     container_name: 'mail_aliases'
-    image: sohmc/php-mysqli:8-apache
+    image: docker.io/library/php-mysqli
     mem_limit: 32m
     volumes:
     - ./php/mail_aliases:/var/www/html:ro
