@@ -42,6 +42,13 @@ services:
     container_name: 'roundcube'
     image: docker.io/library/roundcubemail
     mem_limit: 128m
+    environment:
+      ROUNDCUBE_DEFAULT_HOST: 'ssl://172.17.0.1:993'
+      ROUNDCUBE_SMTP_SERVER: 'tls://172.17.0.1:587'
+      ROUNDCUBE_REQUEST_PATH: ''
+      ROUNDCUBE_SKIN: 'larry'
+      ROUNDCUBE_PLUGINS: 'archive,zipdownload'
+      ROUNDCUBEMAIL_UPLOAD_MAX_FILESIZE: '25M'
     volumes:
       - ./roundcube/config:/var/roundcube/config:ro
       - ./roundcube/db:/var/roundcube/db:rw
