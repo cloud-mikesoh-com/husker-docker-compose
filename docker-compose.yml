@@ -33,6 +33,7 @@ services:
     environment:
       TZ: 'America/New_York'
       PMA_ABSOLUTE_URI: 'https://secure.mikesoh.com/phpmyadmin/'
+    restart: "on-failure"
     volumes:
       - ./phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php:ro
       - ./phpmyadmin/ca-certs:/etc/phpmyadmin/ca-certs:ro
@@ -49,6 +50,7 @@ services:
       ROUNDCUBE_SKIN: 'elastic'
       ROUNDCUBE_PLUGINS: 'archive,zipdownload'
       ROUNDCUBEMAIL_UPLOAD_MAX_FILESIZE: '25M'
+    restart: "on-failure"
     volumes:
       - ./roundcube/config:/var/roundcube/config:ro
       - ./roundcube/db:/var/roundcube/db:rw
@@ -57,6 +59,7 @@ services:
     container_name: 'mail_aliases'
     image: docker.io/library/php-mysqli
     mem_limit: 32m
+    restart: "on-failure"
     volumes:
     - ./php/mail_aliases:/var/www/html:ro
 
