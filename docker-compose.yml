@@ -44,11 +44,11 @@ services:
     image: roundcube/roundcubemail:1.6.3-apache
     mem_limit: 128m
     environment:
-      ROUNDCUBE_DEFAULT_HOST: 'ssl://172.17.0.1:993'
-      ROUNDCUBE_SMTP_SERVER: 'tls://172.17.0.1:587'
-      ROUNDCUBE_REQUEST_PATH: '/roundcube'
-      ROUNDCUBE_SKIN: 'elastic'
-      ROUNDCUBE_PLUGINS: 'archive,zipdownload'
+      ROUNDCUBEMAIL_DEFAULT_HOST: 'ssl://172.17.0.1:993'
+      ROUNDCUBEMAIL_SMTP_SERVER: 'tls://172.17.0.1:587'
+      ROUNDCUBEMAIL_REQUEST_PATH: '/roundcube'
+      ROUNDCUBEMAIL_SKIN: 'elastic'
+      ROUNDCUBEMAIL_PLUGINS: 'archive,zipdownload'
       ROUNDCUBEMAIL_UPLOAD_MAX_FILESIZE: '25M'
     restart: "on-failure"
     volumes:
