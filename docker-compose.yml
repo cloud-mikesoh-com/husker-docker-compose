@@ -58,6 +58,7 @@ services:
   mail_aliases:
     container_name: 'mail_aliases'
     image: docker.io/library/php-mysqli
+    # image: sohmc/php-mysqli:8.2-apache
     mem_limit: 32m
     restart: "on-failure"
     volumes:
