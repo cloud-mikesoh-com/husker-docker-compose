@@ -2,3 +2,11 @@
 # For configuration options and examples, please see:
 # https://gethomepage.dev/latest/configs/services
 
+- Galactica:
+  - HomeAssistant:
+      icon: home-assistant.png
+      href: {{HOMEPAGE_FILE_HOMEASSISTANT_URL}}
+      widget:
+        type: homeassistant
+        url: {{HOMEPAGE_FILE_HOMEASSISTANT_URL}}
+        key: {{HOMEPAGE_FILE_HOMEASSISTANT_KEY}}

@@ -89,9 +89,13 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
-      # HOMEPAGE_FILE_HOMEASSISTANT_KEY: /run/secrets/homeassistant-key
-    # secrets:
-    #   - homeassistant-key
+      HOMEPAGE_FILE_HOMEASSISTANT_KEY: /run/secrets/homeassistant-key
+      HOMEPAGE_FILE_HOMEASSISTANT_URL: /run/secrets/homeassistant-url
+      HOMEPAGE_FILE_GALACTICA_URL: /run/secrets/galactica-url
+    secrets:
+      - homeassistant-key
+      - homeassistant-url
+      - galactica-url
     
   dockerproxy:
     image: ghcr.io/tecnativa/docker-socket-proxy:latest
@@ -113,3 +117,11 @@ networks:
       driver: default
       config:
         - subnet: 172.16.1.0/24
+
+secrets:
+  homeassistant-key:
+    file: ./homepage/secrets/homeassistant-key.txt
+  homeassistant-url:
+    file: ./homepage/secrets/homeassistant-url.txt
+  galactica-url:
+    file: ./homepage/secrets/galactica-url.txt

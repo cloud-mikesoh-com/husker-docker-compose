@@ -11,4 +11,4 @@
 - Galactica:
   - Homepage:
     - abbr: HP
-      href: https://temp.local/
+      href: {{HOMEPAGE_FILE_GALACTICA_URL}}
