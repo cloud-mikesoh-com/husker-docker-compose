@@ -4,3 +4,5 @@ roundcube/db/
 certbot/conf/
 php/
 nginx/logs/
+homepage/config/logs/
+homepage/secrets/

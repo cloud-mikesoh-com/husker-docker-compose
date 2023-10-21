@@ -1,0 +1,14 @@
+---
+# For configuration options and examples, please see:
+# https://gethomepage.dev/latest/configs/bookmarks
+
+- Social:
+  - Lemmy:
+    - abbr: LE
+      href: https://lemmy.world/
+      icon: lemmy.png
+
+- Galactica:
+  - Homepage:
+    - abbr: HP
+      href: https://temp.local/
