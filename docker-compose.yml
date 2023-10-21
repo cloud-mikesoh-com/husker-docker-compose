@@ -38,6 +38,12 @@ services:
       - ./phpmyadmin/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php:ro
       - ./phpmyadmin/ca-certs:/etc/phpmyadmin/ca-certs:ro
       - ./phpmyadmin/sessions:/sessions
+    labels:
+      - homepage.group=Utilities
+      - homepage.name=phpMyAdmin
+      - homepage.icon=phpMyAdmin.png
+      - homepage.href=/phpmyadmin
+      - homepage.description=MySQL Client written in php
 
   roundcube:
     container_name: 'roundcube'
@@ -54,6 +60,12 @@ services:
     volumes:
       - ./roundcube/config:/var/roundcube/config:ro
       - ./roundcube/db:/var/roundcube/db:rw
+    labels:
+      - homepage.group=Utilities
+      - homepage.name=roundcube
+      - homepage.icon=roundcube.png
+      - homepage.href=/roundcube
+      - homepage.description=Hosted E-mail Client
 
   mail_aliases:
     container_name: 'mail_aliases'
@@ -63,6 +75,10 @@ services:
     restart: "on-failure"
     volumes:
       - ./php/mail_aliases:/var/www/html:ro
+    labels:
+      - homepage.group=Utilities
+      - homepage.name=Mail Aliases
+      - homepage.href=/mail_aliases
 
   homepage:
     container_name: homepage
