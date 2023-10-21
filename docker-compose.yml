@@ -41,7 +41,7 @@ services:
     labels:
       - homepage.group=Utilities
       - homepage.name=phpMyAdmin
-      - homepage.icon=phpMyAdmin.png
+      - homepage.icon=phpmyadmin.png
       - homepage.href=/phpmyadmin
       - homepage.description=MySQL Client written in php
 
