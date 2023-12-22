@@ -79,6 +79,15 @@ services:
       - homepage.name=Mail Aliases
       - homepage.href=/mail_aliases
 
+  tacomail:
+    container_name: 'tacomail-ui'
+    image: ghcr.io/sohmc/tacomail-frontend:dev-ui-build
+    restart: "unless-stopped"
+    labels: 
+      - homepage.group=Utilities
+      - homepage.name=tacomail
+      - homepage.href=/tacomail
+
   homepage:
     container_name: homepage
     image: ghcr.io/gethomepage/homepage:latest
