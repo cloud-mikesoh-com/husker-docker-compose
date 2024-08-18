@@ -1,11 +1,8 @@
-version: '2'
-
 services:
   nginx:
     container_name: 'nginx'
     image: nginx:1.27-alpine
     restart: 'unless-stopped'
-    mem_limit: 16m
     ports:
       - 80:80
       - 443:443  
@@ -22,7 +19,6 @@ services:
     container_name: 'certbot'
     image: certbot/certbot:latest
     restart: 'unless-stopped'
-    mem_limit: 64m
     volumes:
       - ./certbot/conf:/etc/letsencrypt
       - ./certbot/www:/var/www/certbot
@@ -32,7 +28,6 @@ services:
     container_name: 'phpmyadmin'
     image: phpmyadmin:latest
     restart: 'unless-stopped'
-    mem_limit: 64m
     environment:
       TZ: 'America/New_York'
       PMA_ABSOLUTE_URI: 'https://secure.mikesoh.com/phpmyadmin/'
@@ -50,7 +45,6 @@ services:
     container_name: 'roundcube'
     image: roundcube/roundcubemail:1.6.3-apache
     restart: 'unless-stopped'
-    mem_limit: 128m
     environment:
       ROUNDCUBEMAIL_DEFAULT_HOST: 'ssl://172.17.0.1:993'
       ROUNDCUBEMAIL_SMTP_SERVER: 'tls://172.17.0.1:587'
@@ -67,19 +61,6 @@ services:
       - homepage.icon=roundcube.png
       - homepage.href=/roundcube
       - homepage.description=Hosted E-mail Client
-
-  mail_aliases:
-    container_name: 'mail_aliases'
-    image: docker.io/library/php-mysqli
-    restart: 'unless-stopped'
-    # image: sohmc/php-mysqli:8.2-apache
-    mem_limit: 32m
-    volumes:
-      - ./php/mail_aliases:/var/www/html:ro
-    labels:
-      - homepage.group=Utilities
-      - homepage.name=Mail Aliases
-      - homepage.href=/mail_aliases
 
   tacomail:
     container_name: 'tacomail-ui'
