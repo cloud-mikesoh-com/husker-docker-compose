@@ -28,6 +28,7 @@ services:
     container_name: 'phpmyadmin'
     image: phpmyadmin:latest
     restart: 'unless-stopped'
+    profiles: [mysql-admin]
     environment:
       TZ: 'America/New_York'
       PMA_ABSOLUTE_URI: 'https://secure.mikesoh.com/phpmyadmin/'
@@ -64,7 +65,7 @@ services:
 
   tacomail:
     container_name: 'tacomail-ui'
-    image: ghcr.io/sohmc/tacomail-frontend:dev-ui-build
+    image: ghcr.io/sohmc/tacomail-frontend:1.2.2
     restart: 'unless-stopped'
     volumes:
       - ./tacomail/env:/app/.env.local:ro
