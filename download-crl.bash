@@ -54,8 +54,23 @@ echo "---------------------------------------------------------------------"
 curl -v -L -o "$name" -H "$AUTH" -H 'Accept: application/octet-stream' "$GH_ASSET"
 
 
-echo "Installing CRL and restarting nginx..."
-docker compose down nginx && \ 
-  rm ./nginx/conf.d/authentication_certs/$name && \
-  mv $name ./nginx/conf.d/authentication_certs/ &&
-  docker compose up -d nginx
+# Installing File
+echo "---------------------------------------------------------------------"
+echo "Installing CRL"
+echo "---------------------------------------------------------------------"
+
+echo "Bringing down nginx"
+docker compose down nginx
+
+echo "Removing existing cert..."
+rm "./nginx/conf.d/authentication_certs/$name"
+
+echo "Moving new cert..."
+mv "$name" ./nginx/conf.d/authentication_certs/
+
+echo "Bringing up nginx"
+docker compose up -d nginx
+
+echo "Inspecting cert"
+openssl crl -in ./nginx/conf.d/authentication_certs/$name
+
