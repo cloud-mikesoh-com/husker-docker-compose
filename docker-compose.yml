@@ -76,7 +76,7 @@ services:
 
   homepage:
     container_name: homepage
-    image: ghcr.io/gethomepage/homepage:latest
+    image: ghcr.io/gethomepage/homepage:v1.4
     restart: 'unless-stopped'
     volumes:
       - ./homepage/config:/app/config # Make sure your local config directory exists
@@ -84,6 +84,7 @@ services:
     environment:
       PUID: 1000
       PGID: 1000
+      HOMEPAGE_ALLOWED_HOSTS: "homepage:3000"
       HOMEPAGE_FILE_HOMEASSISTANT_KEY: /run/secrets/homeassistant-key
       HOMEPAGE_FILE_HOMEASSISTANT_URL: /run/secrets/homeassistant-url
       HOMEPAGE_FILE_GALACTICA_URL: /run/secrets/galactica-url
