@@ -72,5 +72,5 @@ echo "Bringing up nginx"
 docker compose up -d nginx
 
 echo "Inspecting cert"
-openssl crl -in ./nginx/conf.d/authentication_certs/$name
+openssl crl -in ./nginx/conf.d/authentication_certs/$name -noout -text
 
