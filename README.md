@@ -4,9 +4,10 @@ This repository holds the `docker-compose.yml` file along with other
 configuration files that will allow me to deploy my site's various
 containers.  This docker file deploys the following:
 
-* [`nginx` v1.24-alpine](https://hub.docker.com/_/nginx)
+* [`nginx` v1.29-alpine](https://hub.docker.com/_/nginx)
+* [`homepage` v1.4](https://ghcr.io/gethomepage/homepage)
 * [`phpmyadmin` latest](https://hub.docker.com/r/phpmyadmin/phpmyadmin)
-* [`certbot` latest](https://hub.docker.com/r/certbot/certbot)
+* [`certbot` v5.0.0](https://hub.docker.com/r/certbot/certbot)
 * [`roundcube` 1.5.3](https://hub.docker.com/r/roundcube/roundcubemail)
 
 # Why Tagged Versions
@@ -14,6 +15,8 @@ containers.  This docker file deploys the following:
 `nginx` is pinned to a specific version since it is most likely to fail without properly testing.
 
 `roundcube` is pinned to 1.5.3 due to [issues with roundcube-1.6](https://github.com/roundcube/roundcubemail-docker/issues/186).
+
+`certbot` and `homepage` are pinned just to be safe.
 
 # Attributions
 
