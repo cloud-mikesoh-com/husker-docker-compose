@@ -73,6 +73,7 @@ services:
       - homepage.group=Utilities
       - homepage.name=tacomail
       - homepage.href=/tacomail
+      - homepage.icon=mdi-taco
 
   homepage:
     container_name: homepage

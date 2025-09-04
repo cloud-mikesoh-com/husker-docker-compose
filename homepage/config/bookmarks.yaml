@@ -12,3 +12,4 @@
   - Homepage:
     - abbr: HP
       href: {{HOMEPAGE_FILE_GALACTICA_URL}}
+      icon: si-homeassistant
